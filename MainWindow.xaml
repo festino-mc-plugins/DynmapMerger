@@ -1,0 +1,43 @@
+﻿<Window x:Class="DynmapUniter.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:DynmapUniter"
+        mc:Ignorable="d"
+        Title="DynmapUniter" Height="600" Width="900"
+        Loaded="Window_Loaded">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="1*"/>
+            <ColumnDefinition Width="3*"/>
+        </Grid.ColumnDefinitions>
+
+        <TextBlock HorizontalAlignment="Left" Text="x" TextWrapping="Wrap" VerticalAlignment="Top" Margin="20,10,0,0" Height="16" Width="6"/>
+        <TextBlock HorizontalAlignment="Right" Text="z" TextWrapping="Wrap" VerticalAlignment="Top" Margin="0,10,20,0" Height="16" Width="5"/>
+
+        <TextBlock HorizontalAlignment="Center" Text="min" TextWrapping="Wrap" VerticalAlignment="Top" Margin="0,30,0,0" Height="16" Width="22"/>
+        <TextBox x:Name="textBox_xMin" HorizontalAlignment="Left" Text="" TextWrapping="Wrap" VerticalAlignment="Top" Width="50" Margin="20,30,0,0" Height="18"/>
+        <TextBox x:Name="textBox_zMin" HorizontalAlignment="Right" Text="" TextWrapping="Wrap" VerticalAlignment="Top" Width="50" Margin="0,30,20,0" Height="18"/>
+
+        <TextBlock HorizontalAlignment="Center" Text="max" TextWrapping="Wrap" VerticalAlignment="Top" Margin="0,50,0,0" Height="16" Width="22"/>
+        <TextBox x:Name="textBox_xMax" HorizontalAlignment="Left" Text="" TextWrapping="Wrap" VerticalAlignment="Top" Width="50" Margin="20,50,0,0" Height="18"/>
+        <TextBox x:Name="textBox_zMax" HorizontalAlignment="Right" Text="" TextWrapping="Wrap" VerticalAlignment="Top" Width="50" Margin="0,50,20,0" Height="18"/>
+
+        <TextBox x:Name="textBox_dynmap" HorizontalAlignment="Stretch" Margin="10,75,10,0" Text="dynmap" TextWrapping="Wrap" VerticalAlignment="Top" Height="18"/>
+        <TextBox x:Name="textBox_res" HorizontalAlignment="Stretch" Margin="10,100,10,0" Text="res.png" TextWrapping="Wrap" VerticalAlignment="Top" Height="18"/>
+
+        <ComboBox x:Name="comboBox_scale" HorizontalAlignment="Center" Margin="0,125,0,0" VerticalAlignment="Top" Width="120" SelectedIndex="2" Height="22">
+            <ComboBoxItem Content="0"/>
+            <ComboBoxItem Content="1"/>
+            <ComboBoxItem Content="2"/>
+            <ComboBoxItem Content="3"/>
+            <ComboBoxItem Content="4"/>
+            <ComboBoxItem Content="5"/>
+        </ComboBox>
+
+        <Button x:Name="convertButton" Content="Convert" HorizontalAlignment="Center" Margin="0,155,0,0" VerticalAlignment="Top" Width="50" Height="30" Click="convertButton_ClickAsync"/>
+        <ListBox x:Name="logBox" Grid.Column="1" Margin="5,5,5,5" ItemsSource="{Binding log}"/>
+        <ProgressBar x:Name="progressBar" HorizontalAlignment="Stretch" VerticalAlignment="Top" Margin="20,200,20,0" Height="15" Maximum="1"/>
+    </Grid>
+</Window>
